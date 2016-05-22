@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SMSTodo2</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="screen_2">Screen2</string>
+    
+    <string-array name="TopLevelMenu">
+        <item>TODO</item>
+        <item>Message</item>
+        <item>Clean TODO</item>
+        <item>Exit</item>
+    </string-array>
+
+    <string-array name="TopLevelMenu2">
+        <item>Message</item>
+        <item>TODO</item>
+        <item>Clean TODO</item>
+        <item>Home</item>
+        <item>Exit</item>
+    </string-array>
+
+    <string-array name="TopLevelMenu3">
+        <item>Add TODO</item>
+        <item>TODO</item>
+        <item>Clean TODO</item>
+        <item>Home</item>
+        <item>Message</item>
+        <item>Exit</item>
+    </string-array>
+    <string name="title_activity_message_list">MessageListActivity</string>
+</resources>

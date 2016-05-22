@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:weightSum="1"
+    android:orientation="vertical" >
+
+    <Spinner
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/home_spinner4" />
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <EditText
+        android:layout_width="89dp"
+        android:layout_height="wrap_content"
+        android:id="@+id/todoLabel"
+        android:text="TODO:"
+        android:editable="false"/>
+        <EditText
+            android:layout_width="221dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/todoText"
+            android:text="Write Here"
+            android:editable="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateLabel"
+            android:text="Date:"
+            android:editable="false"/>
+        <EditText
+            android:layout_width="221dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/dateText"
+            android:text="Write Here"
+            android:editable="true"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:layout_width="89dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/forLabel"
+            android:text="Whom:"
+            android:editable="false"/>
+        <EditText
+            android:layout_width="221dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/forWhom"
+            android:text="Write Here"
+            android:editable="true"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Submit"
+        android:id="@+id/btnSubmit"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Cancel"
+            android:id="@+id/btnCancel"/>
+    </LinearLayout>
+</LinearLayout>
