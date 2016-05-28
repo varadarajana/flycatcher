@@ -32,6 +32,10 @@
             android:name=".AddToDoActivity"
             android:label="ToDoScreen">
         </activity>
+        <activity
+            android:name=".ManageTODOActivity"
+            android:label="ToDoScreen">
+        </activity>
     </application>
 
     <uses-permission android:name="android.permission.READ_SMS"></uses-permission>

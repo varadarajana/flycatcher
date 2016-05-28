@@ -241,6 +241,10 @@ public class MainActivity2 extends Activity  implements  OnClickListener, Adapte
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
+        if(item.equals("Trial")){
+            Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
+            startActivity(intent);
+        }
 
 
     }
