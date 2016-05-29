@@ -3,6 +3,24 @@
     android:orientation="vertical"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent">
+    <ImageView
+        android:id="@+id/imgForRight"
+        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/android32"
+        android:contentDescription="@string/app_name" />
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/lblId"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:padding="10dip"
+        android:textSize="16dip"
+        android:textStyle="bold"
+        android:visibility="invisible">
+    </TextView>
     <TextView xmlns:android="http://schemas.android.com/apk/res/android"
         android:id="@+id/lblMsg"
         android:layout_width="fill_parent"
@@ -26,4 +44,13 @@
         android:layout_alignParentRight="true"
         android:layout_centerInParent="true"
         android:layout_marginLeft="8dp"/>
+    <ImageView
+        android:id="@+id/imgForLeft"
+        android:layout_height="80dp"
+        android:layout_width="60dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:layout_margin="10dp"
+        android:src="@drawable/android32"
+        android:contentDescription="@string/app_name" />
 </LinearLayout>

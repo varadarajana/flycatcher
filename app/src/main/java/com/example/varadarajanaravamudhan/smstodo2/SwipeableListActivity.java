@@ -61,6 +61,7 @@ public class SwipeableListActivity extends Activity implements AdapterView.OnIte
                 SMSSearchResults smsSearchResults = new SMSSearchResults();
                 smsSearchResults.setStrAddr(c.getString(1));
                 smsSearchResults.setStrMsg(c.getString(2));
+                smsSearchResults.setSelected(false);
                 listSMSSearchResults.add(smsSearchResults);
             }
         }

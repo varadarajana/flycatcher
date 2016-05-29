@@ -54,7 +54,7 @@ public class AddToDoActivity extends Activity implements View.OnClickListener, A
         String strTodo = todoItem.getText().toString();
         String strDate = todoDate.getText().toString();
         String strWhom = todoWhom.getText().toString();
-        dbhelper.insertTODO(strWhom,strTodo);
+        dbhelper.insertTODO(strWhom,strTodo, false);
         Toast.makeText(getApplicationContext(), strTodo, Toast.LENGTH_LONG).show();
     }
 

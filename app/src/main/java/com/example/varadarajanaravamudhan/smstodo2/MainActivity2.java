@@ -9,6 +9,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.Loader;
 import android.database.Cursor;
+import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
@@ -74,6 +75,7 @@ public class MainActivity2 extends Activity  implements  OnClickListener, Adapte
 
         lvMsg = (ListView) findViewById(R.id.lvMsg);
         dbhelper = new MyDBHelper(this);
+        //dbhelper.cleanAndStart();
         // Init GUI Widget
         //ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, smslist);
         //ListView listView = (ListView)findViewById(R.id.lvMsg);

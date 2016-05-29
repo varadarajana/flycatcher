@@ -5,9 +5,18 @@ package com.example.varadarajanaravamudhan.smstodo2;
  */
 public class SMSSearchResults {
 
+    private String id;
     private String strAddr;
     private String strMsg;
     private boolean selected;
+
+    public String getId(){
+        return this.id;
+    }
+
+    public void setId(String id){
+        this.id = id;
+    }
 
     public String getStrAddr(){
         return this.strAddr;

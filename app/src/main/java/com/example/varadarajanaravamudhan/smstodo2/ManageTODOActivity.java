@@ -5,9 +5,12 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.AnimationUtils;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -28,6 +31,8 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
     TextView lblMsg, lblNo;
     ListView lvMsg;
     MyDBHelper dbhelper;
+    Animation outToRight;
+    Animation outToLeft;
     MyCustomBaseAdapter myCustomBaseAdapter;
 
 
@@ -69,6 +74,8 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
         //ArrayAdapter adapter = new ArrayAdapter<String>(this, R.layout.activity_listview, smslist);
         //ListView listView = (ListView)findViewById(R.id.lvMsg);
         //listView.setAdapter(adapter);
+        outToRight = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.out_to_right);
+        outToLeft = AnimationUtils.loadAnimation(getApplicationContext(),R.anim.out_to_left);
         todoList = dbhelper.getAllTODO();
         Log.d("TODO", String.valueOf(todoList.size()));
         Context context = getApplicationContext();
@@ -91,9 +98,22 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
                 Toast.LENGTH_SHORT).show();
 
         SMSSearchResults result = (SMSSearchResults)lvMsg.getItemAtPosition(position);
+        View v = lvMsg.getChildAt(position);
+        ImageView leftImgView = (ImageView) v.findViewById(R.id.imgForLeft);
+        ImageView rightImgView = (ImageView) v.findViewById(R.id.imgForRight);
         //int todoList.lastIndexOf(result);
-        if(isRight) {
-            //view.setBackgroundColor(Color.BLUE);
+        if(!isRight) {
+            v.setBackgroundColor(Color.BLUE);
+            leftImgView.startAnimation(outToRight);
+           /* if (imgView == null){
+                Toast.makeText(this, "Image is null", Toast.LENGTH_SHORT).show();
+            }else{
+                Toast.makeText(this, "Some Image", Toast.LENGTH_SHORT).show();
+            }*/
+            //imgView.startAnimation(outToRight);
+        } else {
+            v.setBackgroundColor(Color.MAGENTA);
+            rightImgView.startAnimation(outToLeft);
         }
     }
 
@@ -101,6 +121,9 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
     public void onItemClickListener(ListAdapter adapter, int position) {
         Toast.makeText(this, "Single tap on item position " + position,
                 Toast.LENGTH_SHORT).show();
+        SMSSearchResults result = (SMSSearchResults)lvMsg.getItemAtPosition(position);
+        result.setSelected(true);
+        dbhelper.updateTOD(result.getId(),result.getStrAddr(), result.getStrMsg(),result.isSelected());
     }
 
     @Override

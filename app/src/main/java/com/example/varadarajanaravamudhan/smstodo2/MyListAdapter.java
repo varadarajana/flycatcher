@@ -89,7 +89,7 @@ public class MyListAdapter extends BaseAdapter {
                             sender = splitMessage[1];
                             message = splitMessage[0];
 
-                            dbHelper.insertTODO(sender,message);
+                            dbHelper.insertTODO(sender,message, false);
                             Log.v(TAG, toWrite);
                             Log.v(TAG, "Horizontal");
                         }
