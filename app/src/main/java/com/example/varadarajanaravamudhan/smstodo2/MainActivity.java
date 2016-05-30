@@ -19,6 +19,7 @@ import java.util.ArrayList;
 
 public class MainActivity extends Activity implements AdapterView.OnItemSelectedListener {
 
+    MyDBHelper dbhelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,6 +33,7 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spin_home.setAdapter(adapter);
         spin_home.setOnItemSelectedListener(this);
+        dbhelper = new MyDBHelper(this);
     }
 
     /*@Override
@@ -60,8 +62,28 @@ public class MainActivity extends Activity implements AdapterView.OnItemSelected
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
-        if(item.equals("Message")) {
-            Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+        if (item.equals("Message")){
+            Intent intent = new Intent(getApplicationContext(), SwipeableListActivity.class);
+            startActivity(intent);
+        }
+        if (item.equals("TODO")){
+            Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
+            startActivity(intent);
+        }
+        if(item.equals("Clean TODO")){
+            dbhelper.cleanTODO();
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast.makeText(context, "TODO list cleaned", duration).show();
+        }
+        if(item.equals("Exit")){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        if(item.equals("Trial")){
+            Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
             startActivity(intent);
         }
 

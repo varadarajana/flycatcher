@@ -62,7 +62,7 @@ public class AddToDoActivity extends Activity implements View.OnClickListener, A
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
         if (item.equals("TODO")){
-            Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+            Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
             startActivity(intent);
         }
         if(item.equals("Clean TODO")){

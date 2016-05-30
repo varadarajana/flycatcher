@@ -77,8 +77,13 @@ public class SwipeableListActivity extends Activity implements AdapterView.OnIte
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
         String item = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        if (item.equals("Message")){
+           /* Intent intent = new Intent(getApplicationContext(), SwipeableListActivity.class);
+            startActivity(intent);*/
+        }
         if (item.equals("TODO")){
-            Intent intent = new Intent(getApplicationContext(), MainActivity2.class);
+            Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
             startActivity(intent);
         }
         if(item.equals("Clean TODO")){
@@ -93,8 +98,8 @@ public class SwipeableListActivity extends Activity implements AdapterView.OnIte
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             startActivity(intent);
         }
-        if (item.equals("Home")){
-            Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+        if(item.equals("Trial")){
+            Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
             startActivity(intent);
         }
     }

@@ -1,6 +1,7 @@
 package com.example.varadarajanaravamudhan.smstodo2;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.util.Log;
@@ -128,11 +129,40 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
 
     @Override
     public void onClick(View v) {
+        Toast.makeText(getApplicationContext(),"Add Clicked", Toast.LENGTH_SHORT).show();
+        Intent intent = new Intent(getApplicationContext(), AddToDoActivity.class);
+        startActivity(intent);
 
     }
 
     @Override
     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+        String item = parent.getItemAtPosition(position).toString();
+        Toast.makeText(parent.getContext(), "Selected: " + item, Toast.LENGTH_LONG).show();
+        if (item.equals("Message")){
+            Intent intent = new Intent(getApplicationContext(), SwipeableListActivity.class);
+            startActivity(intent);
+        }
+        if (item.equals("TODO")){
+            /*Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
+            startActivity(intent);*/
+        }
+        if(item.equals("Clean TODO")){
+            dbhelper.cleanTODO();
+            Context context = getApplicationContext();
+            int duration = Toast.LENGTH_SHORT;
+            Toast.makeText(context, "TODO list cleaned", duration).show();
+        }
+        if(item.equals("Exit")){
+            Intent intent = new Intent(Intent.ACTION_MAIN);
+            intent.addCategory(Intent.CATEGORY_HOME);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            startActivity(intent);
+        }
+        if(item.equals("Trial")){
+            /*Intent intent = new Intent(getApplicationContext(), ManageTODOActivity.class);
+            startActivity(intent);*/
+        }
 
     }
 
