@@ -65,7 +65,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         return true;
     }
 
-    public boolean updateTOD(String id, String addr, String msg, boolean bStatus){
+    public boolean updateTODO(String id, String addr, String msg, boolean bStatus){
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues cv = new ContentValues();
         cv.put("addr", addr);

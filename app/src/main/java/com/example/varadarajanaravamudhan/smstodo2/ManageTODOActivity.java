@@ -104,17 +104,20 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
         ImageView rightImgView = (ImageView) v.findViewById(R.id.imgForRight);
         //int todoList.lastIndexOf(result);
         if(!isRight) {
+            result.setSelected(true);
+            Log.d("TODO£££" ,
+                    "£Id:" + result.getId() +
+                            "£Msg:" + result.getStrMsg() +
+                            "£result:" + result.isSelected()
+                    );
+            dbhelper.updateTODO(result.getId(), result.getStrAddr(), result.getStrMsg(), result.isSelected());
             v.setBackgroundColor(Color.BLUE);
             leftImgView.startAnimation(outToRight);
-           /* if (imgView == null){
-                Toast.makeText(this, "Image is null", Toast.LENGTH_SHORT).show();
-            }else{
-                Toast.makeText(this, "Some Image", Toast.LENGTH_SHORT).show();
-            }*/
-            //imgView.startAnimation(outToRight);
+
         } else {
             v.setBackgroundColor(Color.MAGENTA);
             rightImgView.startAnimation(outToLeft);
+            dbhelper.deleteTODO(result.getId());
         }
     }
 
@@ -124,7 +127,7 @@ public class ManageTODOActivity extends AbstractSwipeListActivity implements Vie
                 Toast.LENGTH_SHORT).show();
         SMSSearchResults result = (SMSSearchResults)lvMsg.getItemAtPosition(position);
         result.setSelected(true);
-        dbhelper.updateTOD(result.getId(),result.getStrAddr(), result.getStrMsg(),result.isSelected());
+        dbhelper.updateTODO(result.getId(),result.getStrAddr(), result.getStrMsg(),result.isSelected());
     }
 
     @Override

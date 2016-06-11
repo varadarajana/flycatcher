@@ -104,10 +104,6 @@ public class MyCustomBaseAdapter extends BaseAdapter {
         holder.imgForRight.setVisibility(View.VISIBLE);
         holder.imgForLeft.setVisibility(View.VISIBLE);
 
-        if(position % 2 == 0){
-            convertView.setBackgroundColor(Color.GRAY);
-        }
-
         return convertView;
     }
 
