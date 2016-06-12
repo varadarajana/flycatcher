@@ -97,6 +97,15 @@ public class MyCustomBaseAdapter extends BaseAdapter {
         }else{
             holder = (ViewHolder)convertView.getTag();
         }
+        /*
+         * Just to check if the list has checked items
+         */
+        Log.d("TODO", "Id ##" + smsSearchArrayList.get(position).getId() +
+              "checked ## " + smsSearchArrayList.get(position).isSelected());
+
+        /*
+         * End Check
+         */
         holder.txtId.setText(smsSearchArrayList.get(position).getId());
         holder.txtAddr.setText(smsSearchArrayList.get(position).getStrAddr());
         holder.txtMsg.setText(smsSearchArrayList.get(position).getStrMsg());

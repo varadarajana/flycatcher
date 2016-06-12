@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.DatabaseUtils;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 import java.lang.reflect.Array;
 import java.util.ArrayList;
@@ -74,7 +75,7 @@ public class MyDBHelper extends SQLiteOpenHelper {
         if(bStatus){
             strStatus = "true";
         }
-        cv.put("status", bStatus);
+        cv.put("status", strStatus);
         db.update("TODO", cv, "id=?", new String[]{id});
         return true;
     }
@@ -110,6 +111,15 @@ public class MyDBHelper extends SQLiteOpenHelper {
             if (cr.getString(3).equals("true")) {
                 smsSearchResult.setSelected(true);
             }
+            /*
+             * Just to make sure selections are correct
+             */
+
+            Log.d("TODO", "dbId:" + smsSearchResult.getId() +
+                    ":check:" + smsSearchResult.isSelected());
+            /*
+             * End of check
+             */
             todoList.add(smsSearchResult);
             cr.moveToNext();
         }
